@@ -1,6 +1,10 @@
 Graylog Collector ChangeLog
 ===========================
 
+## v0.5.0 (unreleased)
+
+* Add UDP support to GELF output. (#59)
+
 ## v0.4.1 (2015-09-07)
 
 * Fix file rotation detection on platforms with a slow watchservice
