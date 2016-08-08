@@ -14,17 +14,17 @@
  * You should have received a copy of the GNU General Public License
  * along with Graylog.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.graylog.collector.heartbeat;
+package org.graylog.collector.annotations;
 
-import retrofit.client.Response;
-import retrofit.http.Body;
-import retrofit.http.PUT;
-import retrofit.http.Path;
+import com.google.inject.BindingAnnotation;
 
-public interface CollectorRegistrationService {
-    @PUT("/plugins/org.graylog.plugins.collector/collectors/{collectorId}")
-    Response register(@Path("collectorId") String collectorId, @Body CollectorRegistrationRequest request);
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
-    @PUT("/system/collectors/{collectorId}")
-    Response legacyRegister(@Path("collectorId") String collectorId, @Body CollectorRegistrationRequest request);
+@Target(ElementType.PARAMETER)
+@Retention(RetentionPolicy.RUNTIME)
+@BindingAnnotation
+public @interface CollectorHostName {
 }
